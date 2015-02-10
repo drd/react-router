@@ -435,7 +435,7 @@ function createRouter(options) {
           Router.dispatch(location, null);
         } else {
           if (location.addChangeListener)
-            location.addChangeListener(Router.handleLocationChange);
+            location.addChangeListener(function() { Router.handleLocationChange.apply(Router, arguments); });
 
           this.isRunning = true;
 
